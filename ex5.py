@@ -4,7 +4,7 @@ height = 74 # inches
 weight = 180 # lbs
 eyes = 'Blue'
 teeth = 'White'
-hair = 'Brown'
+hair =  'Brown'
 
 print(f"Let's talk about {name}.")
 print(f"He's {height} inches tall.")
