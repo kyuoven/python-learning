@@ -1,0 +1,35 @@
+# First, go back through every exercise you have done so far and write down every word and symbol (another name for "character") that you have used.
+# Make sure your list of symbols is complete.
+# Next to each word or symbol, write its name and what it does.
+# If you can't find a name for a symbol in this book, then look for it online.
+# If you do not know what a word or symbol does, then read about it again and try using it in some code.
+# You may run into some few things you can't find out or know, so just keep those on the list and be ready to look them up when you find them.
+# Once you have your list, spend a few days rewriting the list and double-checking that it's correct.
+# This may get boring, but push through and realy nail it down.
+# Once you have memorized the list and what they do then set it up by writing tables of symbols, their names, and what they do from memory.
+# If you hit some you can't recakk from memory, go back and mamorize them again.
+
+# There is no failure, only trying
+
+
+ex1.py :
+# : Python ignores all comments after a pound.
+print("") : Tells python that whatever is inbetween the double quotations must be printed out in the terminal when you run it.
+
+ex3.py : 
++ : plus - adds stuff
+- : minus - subtracts stuff
+/ : slash - divides stuff
+* : asterix - multiplies stuff
+<= : greater than or equal - checks if numbers are greater or equal
+>= : lesser than or equal - checks if numbers are lesser or equal
+% : percentage - gets a percentage of a number
+
+ex4.py :
+= : equal sign - assigns a variable
+
+ex5.py :
+f-strings : using f-strings inside print() makes it easier to assign variables
+
+ex6.py :
+
