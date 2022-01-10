@@ -2,8 +2,6 @@
 hi 
 notes
 
-IMPRTANT NOTE: Let KATIA break your code of ex6 !!!!!!!!!!!!!!!!!!!!!!!!!!
-
 a hashtag is also called a pound(preferably), it hides lines of code when you eventually pull it.
 "Anything after the pound is ignored by python
 
