@@ -39,3 +39,5 @@ Functions do three things:
 2. They take arguments the way your scripts take argv.
 3. Using 1 and 2, they let you make your own "mini-scripts" or "tiny
 commands."
+
+good exercise/explanation for for-loops, .append, range and lists: ex32.py
