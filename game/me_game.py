@@ -17,11 +17,11 @@ print(f"How was your day today, {your_name}?")
 
 day = input("> ")
 
-if day.lower() in ('good', 'amazing', 'great'):
+if day.lower() in ('good', 'amazing', 'great', 'fantastic','great','nice', 'acceptable', 'better than normal', 'fun'):
     print("Nice to hear!")
     print("Do you want to reflect on anything that happened today? (yes/no)")
 
-elif day.lower() in ("bad", "not good", "shitty"):
+elif day.lower() in ("bad", "not good", "shitty",'poor','terrible','depressed','unfortunate','awful'):
     print("I hope you feel better soon!")
     print("Would you like to talk to me about your day? (yes/no)")
 
@@ -35,4 +35,8 @@ if yes_or_no.lower() in ("yes"):
 
 elif yes_or_no.lower() in ("no"):
     print("Okay! I will respect your boundaries.")
+
+print(f"Have a nice day further! Drink enough water and stay safe, {your_name} ! ")
+
+input = ("> ")
 
