@@ -30,11 +30,25 @@ else:
 
 yes_or_no = input("> ")
 
-if yes_or_no.lower() in ("yes"):
+if yes_or_no.lower() in ("yes") :
     print("Tell me all about your day, then! :-) <3!")
+    input("> ")
 
-elif yes_or_no.lower() in ("no"):
+elif yes_or_no.lower() in ("no") :
     print("Okay! I will respect your boundaries.")
+
+print("Another question! Did you eat yet today? (yes/no) ")
+
+food = input("> ")
+
+if food.lower() in ("yes") :
+    print("Good job! I am proud of you, keep doing well.")
+elif food.lower() in ("no") :
+    print("Please have something! ( 'ω')旦~~ Eating enough is vital to be able to do things you like doing.")
+    print("Like watering flowers or taking a nap! (。-ω-)zzz ")
+
+print(f"Would you like to talk some more, {your_name}? (yes/no)")
+
 
 print(f"Have a nice day further! Drink enough water and stay safe, {your_name} ! ")
 
