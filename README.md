@@ -41,3 +41,5 @@ Functions do three things:
 commands."
 
 good exercise/explanation for for-loops, .append, range and lists: ex32.py
+
+ ordinal == ordered, 1st; cardinal == cards at random, 0.
