@@ -8,6 +8,11 @@ GOOD_DAY = [
     "acceptable",
     "better than normal",
     "fun",
+    "it was good",
+    "it was great",
+    "it was okay",
+    "it was ok",
+    "fine",
 ]
 
 BAD_DAY = [
