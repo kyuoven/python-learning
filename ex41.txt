@@ -1,4 +1,4 @@
-word drills
+> word drills
 
 CLASS           Tell python to make a new type of thing
 OBJECT          Two meanings: the most basic type of thing, and any instance of some thing
@@ -10,3 +10,15 @@ COMPOSITION     The concept that a class can be composed of other classes as par
 TTRIBUTE        A property classes have that are from composition and are usually variables
 IS-A            A phrase to say something inherits from another, as in a "salmon" is-a "fish"
 HAS-A   	    A phrase to say that something is composed of other things or has a trait,as in "a salmon has-a mouth"
+
+> phrase drills
+
+CLASS X(Y)                              Make a class named X that is in Y
+CLASS X(OBJECT): DEF __INIT__(SELF,J)   Class X has-a __init__ that takes self and J parameters
+CLASS X(OBJECT): DEF M(SELF,J)          Class X has-a function named M that takes self and J parameters
+FOO = X()                               Set foo to an instance of class X
+FOO.M(J)                                From foo, get the M function and call it with parameters self, J
+FOO.K = Q                               From foo, get the K attribute and et it to Q
+
+
+
