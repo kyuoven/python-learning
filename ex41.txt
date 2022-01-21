@@ -1,0 +1,12 @@
+word drills
+
+CLASS           Tell python to make a new type of thing
+OBJECT          Two meanings: the most basic type of thing, and any instance of some thing
+INSTANCE        What you get when you tell python to create a class
+DEF             How you define a function inside a class
+SELF            Inside the functions are a class, self is variable for the instance/object being accessed
+INHERITANCE     The concept that one class can inherit traits from anonther class, much like you and your parents
+COMPOSITION     The concept that a class can be composed of other classes as parts, much like a car has wheels
+TTRIBUTE        A property classes have that are from composition and are usually variables
+IS-A            A phrase to say something inherits from another, as in a "salmon" is-a "fish"
+HAS-A   	    A phrase to say that something is composed of other things or has a trait,as in "a salmon has-a mouth"
