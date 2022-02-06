@@ -29,11 +29,17 @@ class Game:
             give_flower(Tulip)
         elif what_flower == "Rose":
             give_flower(Rose)
+        elif what_flower == "Cheddar Cheese":
+            print("Do you think this is a joke? BANNED! BLOCKED! NO DISCORD CHAT FOR 24 HRS!!!!!!!")
         else:
             print("pls pick a flower")
+        print(f"Beautiful! I love {what_flower}s. :-) ")
 
 
     def give_flower(self, flower):
         self.player.flower:
+        return what_flower
+        
+        
 
 
