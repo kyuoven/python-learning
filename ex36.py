@@ -33,7 +33,7 @@ def restart(silent=False):
 
 
 def dead():
-    quit
+    quit()
 
 
 def djungelskog_room():
@@ -79,4 +79,5 @@ def imposter_from_amogus_room():
         dead()
 
 
-start()
+if __name__ == "__main__":
+    start()
