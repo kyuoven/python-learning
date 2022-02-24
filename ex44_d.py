@@ -14,7 +14,7 @@ class Child(Parent):
         print("CHILDE override()")
 
         def altered(self):
-            print("CHILDE, BEFORE PARENT altered()")
+            print("CHILD, BEFORE PARENT altered()")
             super(Child, self).altered()
             print("CHILD, AFTER PARENT altered()")
 
