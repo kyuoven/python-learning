@@ -14,7 +14,7 @@ config = {
     "install requires": ["nose"],
     "packages": ["NAME"],
     "scripts": [],
-    "name": "exercise 47",
+    "name": "exercise 47: automated testing",
 }
 
 setup(**config)
