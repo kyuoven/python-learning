@@ -50,3 +50,39 @@ print("Please provide a sentence.")
 sentence_line = input(">")
 scan(sentence_line)
 print("past")
+
+word_types = {
+    "noun": ["bear", "princess", "door"],
+    "verb": ["go", "run", "hide", "stop", "close", "kill", "eat"],
+    "stop": ["in", "of", "at", "to", "from", "the"],
+    "direction": ["up", "down", "north", "south", "east", "west", "back", "forward"],
+}
+
+
+def type_check(word):
+    word = word.lower()
+    for label, type in word_types.items():
+        if word in type:
+            return (label, word)
+
+
+def type_identify(word):
+    word = word.lower()
+    return [(label, word) for label, type in word_types.items() if word in type]
+
+
+def scan(sentence):
+    sentence_list = sentence.split()
+    for k, v in enumerate(sentence_list):
+        if type_identify(v):
+            sentence_list[k] = type_identify(v)[0]  # needed to add [0]
+        else:
+            try:
+                sentence_list[k] = ("number", int(v))
+            except ValueError:
+                sentence_list[k] = ("error", v)
+    return sentence_list
+
+    return next(
+        ((label, word) for label, type in word_types.items() if word in type), None
+    )
