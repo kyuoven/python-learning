@@ -1,1 +1,1 @@
-print("this is mt bin script")
+print("this is my bin script")
