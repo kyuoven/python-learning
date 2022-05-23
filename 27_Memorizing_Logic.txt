@@ -1,0 +1,46 @@
+logic: boolean algebra
+# has to come after you do some memorization
+# one day you will understand it
+
+
+The truth tables:
+
+NOT- # pretty self explanatory
+not False = TRUE
+not True = FALSE
+
+OR- # true is dominant
+True or False =  TRUE
+True or True = TRUE
+False or True =  TRUE
+False or False = FALSE
+
+AND- # false is dominant
+True and False = FALSE
+True and True = TRUE
+False and True = FALSE
+False and False = FALSE
+
+NOT OR- # watch out! think the opposite!
+not (True or False) = FALSE
+not (True or True) = FALSE
+not (False or True) = FALSE
+not (False or False) = TRUE
+
+NOT AND- # think the opposite, and true is dominant again
+not (True and False) = TRUE
+not (True and True) = FALSE
+not (False and True) = TRUE
+not (False and False) = TRUE
+
+!=- # if two numbers are corresponding, it is bad! aka false!
+1 !=0 = TRUE
+1 !=1 = FALSE
+0 !=1 = TRUE
+0 !=0 = FALSE
+
+==- # if two numbers are NOT corresponding, it is bad! aka false!
+1 == 0 = FALSE
+1 == 1 = TRUE
+0 == 1 = FALSE
+0 == 0 = TRUE
