@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    session["room_name"] = memeweb.START
+    session["room_name"] = memeweb.start()
     return redirect(url_for("game"))
 
 

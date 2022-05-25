@@ -8,8 +8,8 @@ def test_room():
         """This room has gold in it you can grab.
                 This door leads to the North.""",
     )
-    assert_equal(gold.name, "GoldRoom")
-    assert_equal(gold.paths, {})
+    assert (gold.name, "GoldRoom")
+    assert (gold.paths, {})
 
 
 def test_room_paths():
@@ -19,9 +19,9 @@ def test_room_paths():
     middle = Room("Middle", "Test room in the middle.")
 
     center.add_paths({"right": right, "left": left, "middle": middle})
-    assert_equal(center.go("right"), right)
-    assert_equal(center.go("left"), left)
-    assert_equal(center.go("middle"), middle)
+    assert (center.go("right"), right)
+    assert (center.go("left"), left)
+    assert (center.go("middle"), middle)
 
 
 def test_map():
@@ -35,6 +35,6 @@ def test_map():
     middle.add_paths({"back": start})
     right.add_paths({"back": start})
 
-    assert_equal(start.go("left"), left)
-    assert_equal(start.go("middle").go("back"), start)
-    assert_equal(start.go("right").go("back"), start)
+    assert (start.go("left"), left)
+    assert (start.go("middle").go("back"), start)
+    assert (start.go("right").go("back"), start)

@@ -1,7 +1,12 @@
-# 2022-05-23: added gateway_to_hell() adn connected it to imposter_from_amogus_room(), tweaked some other lines
-
-
 from sys import exit
+from flask import session
+from thefuzz import fuzz
+from thefuzz import process
+
+
+def get_choice(input, choices):
+    choice, score = process.extractOne(input, choices, score_cutoff=70)
+    return choice
 
 
 class Room(object):
@@ -15,6 +20,12 @@ class Room(object):
 
     def add_paths(self, paths):
         self.paths.update(paths)
+
+
+def load_room(self):
+    room_name = session.get("room_name")
+
+    self.room.get(room_name)
 
 
 def start():
@@ -38,7 +49,7 @@ def restart(silent=False):
         print("There's only LEFT, MIDDLE or RIGHT.")
         print("Which path do you take?")
 
-    choice = input("> ")
+    choice = get_choice(input("> "), ["left", "right", "middle"])
 
     if choice == "left":
         djungelskog_room()
@@ -47,7 +58,7 @@ def restart(silent=False):
     elif choice == "middle":
         gateway_to_hell()
     else:
-        print("I don't understand, your choices are LEFT or RIGHT.")
+        print("I don't understand, your choices are LEFT, MIDDLE or RIGHT.")
         restart(silent=True)
 
 
@@ -65,7 +76,7 @@ def djungelskog_room():
     print("He offers you a good nights sleep.")
     print("Do you take on his offer?")
 
-    choice = input("> ")
+    choice = get_choice(input("> "), ["yes", "no"])
 
     if "yes" in choice:
         print(
@@ -123,7 +134,9 @@ def gateway_to_hell():
     print("................")
     print("Uhm what should we do? Help!")
 
-    choice = input("> ")
+    choice = get_choice(
+        input("> "), ["punch him in the FACE", "steal his stonks", "hack his twitter"]
+    )
 
     if "punch him in the FACE" in choice:
         print("DAAAMN. u punched him HARD!!!! ")
@@ -135,13 +148,13 @@ def gateway_to_hell():
 
         imposter_from_amogus_room()
 
-    elif "steal his stonks":
+    elif "steal his stonks" in choice:
         print("YOINK!!!!")
         print("... and now what?")
         print("You are stuck here now :(")
         quit()
 
-    elif "hack his twitter":
+    elif "hack his twitter" in choice:
         print("You grab his phone and HACK into his twitter account and DELETE IT.")
         print(
             "All of humanity reunites again, the ecosystem is getting better and you can feel the air getting fresher."
