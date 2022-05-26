@@ -2,11 +2,6 @@ from sys import exit
 from flask import session
 from thefuzz import fuzz
 from thefuzz import process
-import logging
-import warnings
-
-warnings.filterwarnings("ignore")
-logging.getLogger().setLevel(logging.ERROR)
 
 
 def get_choice(input, choices):
@@ -25,14 +20,6 @@ class Room(object):
 
     def add_paths(self, paths):
         self.paths.update(paths)
-
-
-def load_room(name):
-    """
-    There is a potential problem here.
-    Who gets to set name? Can that expose a variable?
-    """
-    return globals().get(name)
 
 
 start_room = Room(
@@ -70,6 +57,11 @@ question_mark_room_secret = Room(
     "You found the secret ending!",
     """
     Well hello there! didnt expect you here :D
+    Enjoy your time in this humble abode!
+    ...
+    Whenever you are ready, just type "I am ready" to continue playing.
+    Stay safe, stay sane and hydrated. 
+    <3
 
     """,
 )
@@ -178,13 +170,25 @@ winner_room = Room(
 
 death = Room("death", "You failed to reach the end!")
 
+main_room.add_paths({"left": djungelskog_room})
+
+main_room.add_paths({"middle": elongate_room})
+
+main_room.add_paths({"right": imposter_room})
+
 main_room.add_paths({"up": question_mark_room_secret})
+
+djungelskog_room.add_paths({"yes": cuddle_With_djungelskog})
 
 djungelskog_room.add_paths({"no": death})
 
 imposter_room.add_paths({"I swear I am not sus.": escaped_from_among})
 
 escaped_from_among.add_paths({"*": start_room})
+
+imposter_room.add_paths({"*": you_are_sus})
+
+you_are_sus.add_paths({"*": death})
 
 elongate_punch.add_paths({"*": imposter_room})
 
@@ -193,6 +197,27 @@ elongate_stonks.add_paths({"*": death})
 elongate_hack.add_paths({"*": winner_room})
 
 elon_death_room.add_paths({"*": death})
+
+question_mark_room_secret.add_paths({"I am ready.": main_room})
+
+start_room.add_paths({"PomPomPurinLovr10": cookie_room})
+
+start_room.add_paths({"*": no_cookie_room})
+
+no_cookie_room.add_paths({"*": main_room})
+
+START = start_room
+
+
+def load_Room(name):
+    return globals().get(name)
+
+
+def name_room(room):
+    for key, value in globals().items():
+        if value == room:
+            return key
+
 
 if __name__ == "__main__":
     start_room()
