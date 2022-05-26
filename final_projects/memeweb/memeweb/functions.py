@@ -2,6 +2,11 @@ from sys import exit
 from flask import session
 from thefuzz import fuzz
 from thefuzz import process
+import logging
+import warnings
+
+warnings.filterwarnings("ignore")
+logging.getLogger().setLevel(logging.ERROR)
 
 
 def get_choice(input, choices):
@@ -22,153 +27,172 @@ class Room(object):
         self.paths.update(paths)
 
 
-def load_room(self):
-    room_name = session.get("room_name")
-
-    self.room.get(room_name)
-
-
-def start():
-    print("Do you have it?")
-    print("The password?")
-
-    choice = input("> ")
-
-    if "PomPomPurinLovr10" in choice:
-        print("٩꒰｡•◡•｡꒱۶ congratz! go get yourself a cookie for your efforts 🍪 ")
-    else:
-        print("Whoops! That's not it buddy. Try again :)")
-        restart()
+def load_room(name):
+    """
+    There is a potential problem here.
+    Who gets to set name? Can that expose a variable?
+    """
+    return globals().get(name)
 
 
-def restart(silent=False):
-    if not silent:
-        print(
-            "While taking a stupid little walk for your stupid little mental health you come across a fork in your path."
-        )
-        print("There's only LEFT, MIDDLE or RIGHT.")
-        print("Which path do you take?")
+start_room = Room(
+    "Start",
+    """
+    Do you have it?
+    The password?
+    """,
+)
 
-    choice = get_choice(input("> "), ["left", "right", "middle"])
+cookie_room = Room(
+    "Cookie",
+    """
+    ٩꒰｡•◡•｡꒱۶ congratz! go get yourself a cookie for your efforts 🍪 
+    """,
+)
 
-    if choice == "left":
-        djungelskog_room()
-    elif choice == "right":
-        imposter_from_amogus_room()
-    elif choice == "middle":
-        gateway_to_hell()
-    else:
-        print("I don't understand, your choices are LEFT, MIDDLE or RIGHT.")
-        restart(silent=True)
+no_cookie_room = Room(
+    "No cookie",
+    """
+    Whoops! that is not correct! Now onto the game :)
+    """,
+)
+
+main_room = Room(
+    "Main",
+    """
+    While taking a stupid little walk for your stupid little mental health you come across a triple fork in your path.
+    There is a road to the left, middle and right.
+    You wonder which way to go...
+    """,
+)
+
+question_mark_room_secret = Room(
+    "You found the secret ending!",
+    """
+    Well hello there! didnt expect you here :D
+
+    """,
+)
+
+djungelskog_room = Room(
+    "Djungelskog",
+    """
+    You have encountered the soft and cuddly (yet quite stinky!) Djungelskog.
+    He offers a hug and a soft place to lay your head for a bit.
+    Will you accept his proposal?
+    """,
+)
+
+cuddle_With_djungelskog = Room(
+    "Cuddle",
+    """
+    You started to feel drowsy just thinking about leaning into his fluffy fur.
+    While dozing off, Djungelskog whispers something in your ear.
+    DJUNGELSKOG: The password, my dear...
+    DJUNGELSKOG: It's 'PomPomPurinLovr10'
+    """,
+)
+
+imposter_room = Room(
+    "Imposter",
+    """
+    IMPOSTER FROM AMOGUS: My, my.....
+    IMPOSTER FROM AMOGUS: You look quite SUSSY today!
+    Oh no! The imposter thinks you are sus!
+    Type 'I swear I am not sus.' to save yourself!
+    """,
+)
+
+escaped_from_among = Room(
+    "Escaped from the imposter",
+    """
+    Whew! That was like, super close.
+    """,
+)
+
+you_are_sus = Room(
+    "U SUS",
+    """
+    IMPOSTER FROM AMOGUS: NOOOO WAY!! u are toooo sus !!! 
+    IMPOSTER FROM AMOGUS: did you take my fortnite card?????!!!!
+    IMPOSTER FROM AMOGUS: YEET!!!
+    Darn! You got thrown from the aircraft which you had no idea you were in !!
+    """,
+)
+
+elongate_room = Room(
+    "Elongate",
+    """
+    It's pretty cold in here...
+    Wait, what's that?
+    Elon Musk: *mumble mumble* elongate is so kewl *mumble mumble* buy tweetor *mumble mumble* stonks
+    .....
+    Uhm, What should we do?? HELP!!
+    """,
+)
+
+elongate_punch = Room(
+    "You punched Elon",
+    """
+    Wow! You punched him HARD! So cool!
+    While Elon is unconscious, you notice a  little hole were you can barely fit through and make you way into the unknown room it led to.
+
+    """,
+)
+
+elongate_stonks = Room(
+    "You stole his stonks",
+    """
+    YOINK!!!
+    But, now what?
+    You are stuck here forever :(
+    """,
+)
+
+elongate_hack = Room(
+    "You hacked into his twitter account",
+    """
+    You grab his phone and HACK into his twitter account and DELETE IT.
+    All of humanity reunites again, the ecosystem is getting better and you can feel the air getting fresher.
+    No more elon. all the cringe has been eradicated in the world.
+    """,
+)
+
+elon_death_room = Room(
+    "Twitter cringe",
+    """
+    Elon YOINKS you and makes you look at every tweet that he ever wrote (they are super cringe)
+    You cannot take it anymore and you faint.
+    """,
+)
+
+winner_room = Room(
+    "The end",
+    """
+    Oh you made it! I am proud of you :) 
+    You saved humanity by the skin of your teeth, and you will now be remembered as a great hero.
+    Good Job!
+    """,
+)
 
 
-def dead():
-    quit()
+death = Room("death", "You failed to reach the end!")
 
+main_room.add_paths({"up": question_mark_room_secret})
 
-def winning():
-    print("super! u won!")
-    quit()
+djungelskog_room.add_paths({"no": death})
 
+imposter_room.add_paths({"I swear I am not sus.": escaped_from_among})
 
-def djungelskog_room():
-    print("you have encountered the soft, but kind of stinky djungelskog!")
-    print("He offers you a good nights sleep.")
-    print("Do you take on his offer?")
+escaped_from_among.add_paths({"*": start_room})
 
-    choice = get_choice(input("> "), ["yes", "no"])
+elongate_punch.add_paths({"*": imposter_room})
 
-    if "yes" in choice:
-        print(
-            "djungelskog gives you a soft blanket and lets you lay your head on his tummy."
-        )
-        print("before nodding off you hear him say something: ")
-        print("DJUNGELSKOG: 'The password...'")
-        print("'...'")
-        print("DJUNGELSKOG: 'It's PomPomPurinLovr10'")
-    elif "no" in choice:
-        print("DJUNGELSKOG: 'Why? :( Is it because I am stinky? :(('")
-        print("He stretches out his fuzzy limbs in order to reach you.")
-        print("Long claws portrude from his stuffy-like paws.")
-        print("DJUNGELSKOG: 'Game Over' ")
-        dead()
+elongate_stonks.add_paths({"*": death})
 
+elongate_hack.add_paths({"*": winner_room})
 
-def imposter_from_amogus_room():
-    print("IMPOSTER FROM AMOGUS: ' My, my... '")
-    print("'Don't you look a bit SUSSY today?'")
-    print("Oh no! The Imposter From Amogus thinks you are sus! ")
-    print(
-        "Type 'I swear I am not sus.' to make sure he doesn't throw you out of the airship!"
-    )
-
-    choice = input("> ")
-
-    if "I swear I am not sus" in choice:
-        print("You got away!")
-        restart()
-    else:
-        print("IMPOSTER FROM AMOGUS: 'No way! You are too sus! YEET!!!!")
-        print("The Imposter threw you out of the aircraft.")
-        print("You died.")
-
-        input("> ")
-
-        print("In your last moments.. u see the image ... copy paste pls...")
-        print("https://i1.sndcdn.com/artworks-yCyieQL117W6vBo2-KvzneQ-t500x500.jpg")
-        dead()
-
-
-def gateway_to_hell():
-    print("Well here you are.")
-    print("It's quite cold here, isn't it?")
-
-    choice = input("> ")
-
-    print("Hmmmm.... Something seems off.....")
-    print("..........")
-    print("Wait! What is that???!!!")
-    print(
-        "Elon Musk: *mumble mumble* elongate is so kewl *mumble mumble* buy tweetor *mumble mumble* stonks"
-    )
-    print("................")
-    print("Uhm what should we do? Help!")
-
-    choice = get_choice(
-        input("> "), ["punch him in the FACE", "steal his stonks", "hack his twitter"]
-    )
-
-    if "punch him in the FACE" in choice:
-        print("DAAAMN. u punched him HARD!!!! ")
-        print(
-            "While cringelord elon is unconscious, you slipped away and ran towards the ford in the path you came across earlier."
-        )
-
-        input("> ")
-
-        imposter_from_amogus_room()
-
-    elif "steal his stonks" in choice:
-        print("YOINK!!!!")
-        print("... and now what?")
-        print("You are stuck here now :(")
-        quit()
-
-    elif "hack his twitter" in choice:
-        print("You grab his phone and HACK into his twitter account and DELETE IT.")
-        print(
-            "All of humanity reunites again, the ecosystem is getting better and you can feel the air getting fresher."
-        )
-        print("no more elon. all the cringe has been eradicated in the world.")
-        winning()
-
-    else:
-        print(
-            "Elon YOINKS you and makes you look at every tweet that he ever wrote (they are super cringe)"
-        )
-        print("You can't take it anymore and faint")
-        dead()
-
+elon_death_room.add_paths({"*": death})
 
 if __name__ == "__main__":
-    start()
+    start_room()
