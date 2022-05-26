@@ -43,3 +43,6 @@ commands."
 good exercise/explanation for for-loops, .append, range and lists: ex32.py
 
  ordinal == ordered, 1st; cardinal == cards at random, 0.
+
+ ex52: i am at my FINAL excercise!! this has been a ride, i will hopefully be able to run memeweb on a browser by tonight :)! 
+ 
