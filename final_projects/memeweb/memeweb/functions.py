@@ -16,7 +16,7 @@ class Room(object):
         self.paths = {}
 
     def go(self, direction):
-        return self.paths.get(direction, None)
+        return self.paths.get(direction)
 
     def add_paths(self, paths):
         self.paths.update(paths)
@@ -206,18 +206,18 @@ start_room.add_paths({"*": no_cookie_room})
 
 no_cookie_room.add_paths({"*": main_room})
 
-START = start_room
+START = "start_room"
 
 
-def load_Room(name):
+def load_room(name):
     return globals().get(name)
 
 
-def name_room(room):
+def room_name(Room):
     for key, value in globals().items():
-        if value == room:
+        if value == Room:
             return key
 
 
 if __name__ == "__main__":
-    start_room()
+    START
