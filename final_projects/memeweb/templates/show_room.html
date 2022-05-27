@@ -1,38 +1,45 @@
 <html>
 <style>
     body {
-        background-color: white;
+        background-color: beige;
     }
 
     h2 {
         font-size: 35px;
-        color: darkblue;
+        color: #bd8251;
         display: flex;
         align-items: flex-start;
+        font-family: 'Rubik', sans-serif;
     }
 
     p {
         font-size: 15px;
-        color: skyblue;
+        color: #dea373;
         display: flex;
         align-items: center;
+        font-family: 'Rubik', sans-serif;
     }
 
     h1 {
         font-size: 45px;
-        color: black;
+        color: #573214;
         display: flex;
         align-items: flex-end;
         font-family: 'Rubik', sans-serif;
     }
 </style>
 
-
 <title>
-    final game
+    ( ' ω ' )ノﾞ HI ★ ☆ ★ ☆ ★ ☆
 </title>
 <h1>Choose your adventure!</h1>
 <h2> {{room.name}} </h2>
 <p> {{room.description}} </p>
+
+<p>
+<form action="/game" method="POST">
+    <input type="text" name="action"> <input type="submit">
+</form>
+</p>
 
 </html>
