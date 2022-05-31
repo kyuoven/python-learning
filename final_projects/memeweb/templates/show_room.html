@@ -32,19 +32,25 @@
 <title>
     ( ' ω ' )ノﾞ HI ★ ☆ ★ ☆ ★ ☆
 </title>
+
 <h1>Choose your adventure!</h1>
 <h2> {{room.name}} </h2>
 <p> {{room.description}} </p>
 
 
-{% if room.name in ["death", "death"] %}
+{% if room.name in ["death"] %}
 <p><a href="/">Play Again?</a></p>
 {% else %}
 <p>
 <form action="/game" method="GET">
     <input type="text" name="action"> <input type="submit">
 </form>
+
+<form action="/game" method="POST">
+</form>
+
 </p>
+
 {% endif %}
 
 </html>

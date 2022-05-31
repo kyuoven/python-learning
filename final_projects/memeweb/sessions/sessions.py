@@ -14,7 +14,7 @@ session = web.session.Session(app, store, initializer={"count": 0})
 
 class count:
     def GET(self):
-        session.count += 1
+        session.count = 1
         return str(session.count)
 
 
