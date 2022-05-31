@@ -36,10 +36,15 @@
 <h2> {{room.name}} </h2>
 <p> {{room.description}} </p>
 
+
+{% if room.name in ["death", "death"] %}
+<p><a href="/">Play Again?</a></p>
+{% else %}
 <p>
-<form action="/game" method="POST">
+<form action="/game" method="GET">
     <input type="text" name="action"> <input type="submit">
 </form>
 </p>
+{% endif %}
 
 </html>

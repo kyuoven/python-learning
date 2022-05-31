@@ -3,6 +3,8 @@ from memeweb import functions
 from memeweb.functions import Room
 import web
 
+# assert helps detect problems early and works as documentation for other developers
+
 app = Flask(__name__)
 
 
@@ -17,25 +19,15 @@ def index():
 def game():
     room_name = session.get("room_name")
 
-    if request.method == "POST":
+    if request.method == "GET":
         if room_name:
             room = functions.load_room(room_name)
             return render_template("show_room.html", room=room)
         else:
-            return render_template("you_died.html")
+            return render_template("show_room.html", room=room)
 
-    else:
-        action = request.form.get("GET")
-
-        if room_name and action:
-            room = functions.load_room(room_name)
-            next_room = room.go(action)
-
-            if not next_room:
-                session["room_name"] = functions.name_room(room)
-
-            else:
-                session["room_name"] = functions.name_room(next_room)
+    if request.method == "POST":
+        
 
 
 app.secret_key = "b29530ca21b00a0a5ff3c505"

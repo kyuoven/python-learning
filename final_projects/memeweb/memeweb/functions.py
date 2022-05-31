@@ -213,11 +213,5 @@ def load_room(name):
     return globals().get(name)
 
 
-def room_name(Room):
-    for key, value in globals().items():
-        if value == Room:
-            return key
-
-
 if __name__ == "__main__":
     START
