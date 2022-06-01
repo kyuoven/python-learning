@@ -14,37 +14,37 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    error = None
-    session["room_name"] = functions.START
-    return redirect(url_for("get_game"))
+    session["show_room.html"] = functions.START
+    return redirect(url_for("post_game"))
 
 
 @app.route("/game", methods=["GET"])
 def get_game():
-    room_name = session.get("room_name")
+    room_name = session.get(room.name)
     # posting the html template to accept submissions
     if request.method == "GET":
-        if room_name:
-            room = functions.load_room(room_name)
-            return render_template("show_room.html", room=room)
-        else:
-            return redirect(url_for("get_game"))
+        room = functions.load_room(room.name)
+        return render_template("show_room.html", room=room)
+    else:
+        return redirect(url_for("get_game"))
 
 
 @app.route("/game", methods=["POST"])
 def post_game():
+    room_name = session.get(room.name)
+    # passing the html templaate and showing what to show the user????
     userinput = request.form.get("userinput")
     if userinput is None:
         # no user input
-        return render_template("you_died.html")
-    room_name = session.get(room_name)
-    # passing the html templaate and showing what to show the user????
+        return render_template("empty.html", room=room)
+
     if request.method == "POST":
         if room_name:
-            room = functions.load_room("show_room.html")
-            return render_template("show_room.html")
+            room = functions.load_room(room.name)
+            return render_template("show_room.html", room=room)
         else:
-            return render_template("show_room.html")
+            room = functions.load_room(room.name)
+            return render_template("you_died.html", room=room)
     else:
         return redirect(url_for("post_game"))
 

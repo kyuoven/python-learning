@@ -1,12 +1,9 @@
 from sys import exit
 from flask import session
-from thefuzz import fuzz
-from thefuzz import process
 
 
-def get_choice(input, choices):
-    choice, score = process.extractOne(input, choices, score_cutoff=70)
-    return choice
+def load_room(name):
+    return globals().get(name)
 
 
 class Room(object):
@@ -207,11 +204,6 @@ start_room.add_paths({"*": no_cookie_room})
 no_cookie_room.add_paths({"*": main_room})
 
 START = "start_room"
-
-
-def load_room(name):
-    return globals().get(name)
-
 
 if __name__ == "__main__":
     START
