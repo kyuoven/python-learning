@@ -40,8 +40,11 @@ def post_game():
     room_name = session.get(room_name)
     # passing the html templaate and showing what to show the user????
     if request.method == "POST":
-        room = functions.load_room("show_room.html")
-        return render_template("show_room.html")
+        if room_name:
+            room = functions.load_room("show_room.html")
+            return render_template("show_room.html")
+        else:
+            return render_template("show_room.html")
     else:
         return redirect(url_for("post_game"))
 
