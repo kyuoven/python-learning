@@ -1,11 +1,3 @@
-from sys import exit
-from flask import session
-
-
-def load_room(name):
-    return globals().get(name)
-
-
 class Room(object):
     def __init__(self, name, description):
         self.name = name
@@ -17,6 +9,10 @@ class Room(object):
 
     def add_paths(self, paths):
         self.paths.update(paths)
+
+
+def load_room(name):
+    return globals().get(name)
 
 
 start_room = Room(
@@ -203,7 +199,5 @@ start_room.add_paths({"*": no_cookie_room})
 
 no_cookie_room.add_paths({"*": main_room})
 
-START = "start_room"
-
 if __name__ == "__main__":
-    START
+    start_room

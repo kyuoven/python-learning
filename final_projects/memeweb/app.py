@@ -1,7 +1,6 @@
-from flask import Flask, session, redirect, request, render_template, url_for
+from flask import Flask, session, redirect, request, escape, render_template, url_for
 from memeweb import functions
-from memeweb.functions import Room
-import web
+from memeweb.functions import start_room
 
 # shutting down whatever activity on port:5000 (in terminal)  =
 # lsof -i:5000
@@ -9,44 +8,33 @@ import web
 
 # assert helps detect problems early and works as documentation for other developers
 
+# RENDER_TEMPLATES: Templates are files that contain static data as well as placeholders for dynamic data. A template is rendered with specific data to produce a final document. Flask uses the Jinja template library to render templates.
+# URL_FOR: flask.url_for(endpoint, **values) Generates a URL to the given endpoint with the method provided.
+# REDIRECT: redirecting to a specific URL (together with (url_for))
+
 app = Flask(__name__)
 
 
 @app.route("/")
-def index():
-    session["show_room.html"] = functions.START
-    return redirect(url_for("post_game"))
-
-
 @app.route("/game", methods=["GET"])
 def get_game():
-    room_name = session.get(room.name)
-    # posting the html template to accept submissions
-    if request.method == "GET":
-        room = functions.load_room(room.name)
-        return render_template("show_room.html", room=room)
-    else:
-        return redirect(url_for("get_game"))
+    functions.load_room()
+    return render_template("show_room.html"), redirect(url_for(get_game))
 
 
 @app.route("/game", methods=["POST"])
 def post_game():
-    room_name = session.get(room.name)
+    action = request.form.get(action)
     # passing the html templaate and showing what to show the user????
     userinput = request.form.get("userinput")
     if userinput is None:
-        # no user input
+        # if there is no userinput
         return render_template("empty.html", room=room)
-
-    if request.method == "POST":
-        if room_name:
-            room = functions.load_room(room.name)
-            return render_template("show_room.html", room=room)
-        else:
-            room = functions.load_room(room.name)
-            return render_template("you_died.html", room=room)
-    else:
-        return redirect(url_for("post_game"))
+    elif userinput == "*":
+        room = functions.run()
+        return render_template("show_room.html", room=room), redirect(
+            url_for(post_game)
+        )
 
 
 app.secret_key = "lpthw52"
