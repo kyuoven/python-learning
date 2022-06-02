@@ -12,7 +12,13 @@ class Room(object):
 
 
 def load_room(name):
+    # This line defines the function 'load_room' which has one parameter.
     return globals().get(name)
+    # This line returns the value of the key name if it is found in globals (dict)
+
+
+def test():
+    return globals()
 
 
 start_room = Room(

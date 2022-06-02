@@ -1,6 +1,5 @@
 from flask import Flask, session, redirect, request, escape, render_template, url_for
 from memeweb import functions
-from memeweb.functions import start_room
 
 # shutting down whatever activity on port:5000 (in terminal)  =
 # lsof -i:5000
@@ -16,10 +15,9 @@ app = Flask(__name__)
 
 
 @app.route("/")
-@app.route("/game", methods=["GET"])
-def get_game():
-    functions.load_room()
-    return render_template("show_room.html"), redirect(url_for(get_game))
+def index():
+    room = functions.load_room("start_room")
+    return render_template("show_room.html", room=room)
 
 
 @app.route("/game", methods=["POST"])
