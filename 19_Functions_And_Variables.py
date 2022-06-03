@@ -1,12 +1,15 @@
-def cheese_and_crackers(cheese_count, boxes_of_crackers) :
+def cheese_and_crackers(cheese_count, boxes_of_crackers):
+    # This line gives a function cheese_and_crackers the attributes
+    # cheese_count and boxes_of_crackers which I can give value to.
     print(f"You have {cheese_count} cheeses!")
     print(f"You have {boxes_of_crackers} boxes of crackers!")
     print("Man that's enough for a party!")
     print("Get a blanket. \n")
+    print("<<<< exit cheese_and_crackers")
 
 
 print("We can just give the function numbers directly:")
-cheese_and_crackers(20,30)
+cheese_and_crackers(20, 30)
 
 
 print("OR, we can use variables from our script:")
@@ -22,3 +25,4 @@ cheese_and_crackers(10 + 20, 5 + 6)
 
 print("And we can combine the two, variables and math:")
 cheese_and_crackers(amount_of_cheese + 100, amount_of_crackers + 100)
+# exit, enter again

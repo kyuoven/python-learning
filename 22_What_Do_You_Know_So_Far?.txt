@@ -1,35 +1,89 @@
-# First, go back through every exercise you have done so far and write down every word and symbol (another name for "character") that you have used.
-# Make sure your list of symbols is complete.
-# Next to each word or symbol, write its name and what it does.
-# If you can't find a name for a symbol in this book, then look for it online.
-# If you do not know what a word or symbol does, then read about it again and try using it in some code.
-# You may run into some few things you can't find out or know, so just keep those on the list and be ready to look them up when you find them.
-# Once you have your list, spend a few days rewriting the list and double-checking that it's correct.
-# This may get boring, but push through and realy nail it down.
-# Once you have memorized the list and what they do then set it up by writing tables of symbols, their names, and what they do from memory.
-# If you hit some you can't recakk from memory, go back and mamorize them again.
-
 # There is no failure, only trying
 
 
 ex1.py :
-# : Python ignores all comments after a pound.
-print("") : Tells python that whatever is inbetween the double quotations must be printed out in the terminal when you run it.
+    # : Python ignores all comments after a pound.
+    print("") : Tells python that whatever is inbetween the double quotations must be printed out in the terminal when you run it.
 
 ex3.py : 
-+ : plus - adds stuff
-- : minus - subtracts stuff
-/ : slash - divides stuff
-* : asterix - multiplies stuff
-<= : greater than or equal - checks if numbers are greater or equal
->= : lesser than or equal - checks if numbers are lesser or equal
-% : percentage - gets a percentage of a number
+    + : plus - adds stuff
+    - : minus - subtracts stuff
+    / : slash - divides stuff
+    * : asterix - multiplies stuff
+    <= : greater than or equal - checks if numbers are greater or equal
+    >= : lesser than or equal - checks if numbers are lesser or equal
+    % : percentage - gets a percentage of a number
 
 ex4.py :
-= : equal sign - assigns a variable
+    = : equal sign - assigns a variable
 
 ex5.py :
-f-strings : using f-strings inside print() makes it easier to assign variables
+    f-strings : using f-strings inside print() makes it easier to assign variables
 
-ex6.py :
+ex7.py: 
+    .format() = returns a formatted string or specified values and insert them inside the string's placeholder
+                the placeholder is defined bt using curlt brackets {}.
+
+ex10.py:    
+    \t = tabbed
+    \n = newline
+
+ex11.py: 
+    end='' = by default, python's print() functions ands with a newline.
+    Python's print() function comes with a parameter called 'end', which by default is '\n', i.e newline
+    you can end a print statement with any characters /string using this parameter.
+
+ex12.py:
+    writing inputs and getting answers through terminal:
+    using the inputs in an f-string to print out
+
+ex13.py:
+    argv = argument variable/vector
+    repr(obj) = returns a  printable representation of the object
+    i understand how to use argv more in terminal
+
+ex14.py:
+    int(): coverts a specified value into an integer number
+
+ex15.py:
+    reading files: 
+    txt=open(filename) any file will be displayed as a .txt file in the terminal
+
+ex16.py:
+    target = open(filename, "w")
+    This line specifies what you want to do with filename (w for write)
+    you HAVE to specify what you want to do with the filename if you use truncate()
+
+    Truncate = "think of it as moving the readhead to the beginning and erasing the data"
+
+ex17.py:
+    repr() gives you the representation, the raw python version of it
+    always close your files- for small exercises like this it's not as important,
+    but you should get in the habit of doing this.
+
+ex18.py:
+    anotomy of a function:
+        def function_name(any_arguments, sepereated, by_commas):
+        [indent] then define what you want computer to do
+
+ex19.py:
+    def cheese_and_crackers(cheese_count, boxes_of_crackers):
+    # This line gives a function cheese_and_crackers the attributes
+    # cheese_count and boxes_of_crackers which I can give value to.
+        print(f"You have {cheese_count} cheeses!")
+        print(f"You have {boxes_of_crackers} boxes of crackers!")
+        print("Man that's enough for a party!")
+        print("Get a blanket. \n")
+        print("<<<< exit cheese_and_crackers")
+
+ex20.py:
+    from x import y: from the module 'x' import the file/variable called 'y'
+    .seek(): a way to rewind (comes from mainframe tape days)
+
+ex21.py:
+    using functions:
+        1. define the function (look at 19 for reference)
+        2. call the function
+        3. run the program
+        4. computer calls the function and reads it
 

@@ -1,4 +1,4 @@
-# 2022-05-23: added gateway_to_hell() adn connected it to imposter_from_amogus_room(), tweaked some other lines
+# 2022-05-23: added gateway_to_hell() and connected it to imposter_from_amogus_room(), tweaked some other lines
 
 
 from sys import exit
@@ -18,6 +18,8 @@ def start():
 
 
 def restart(silent=False):
+    # This line defines the function restart which
+    # if it is silent it will be ignored
     if not silent:
         print(
             "While taking a stupid little walk for your stupid little mental health you come across a fork in your path."

@@ -1,9 +1,10 @@
 # from the module 'sys' import the arguement variable 'argv'
 from sys import argv
+
 # listing and assigning arguement variables
 script, filename = argv
 # assigning a function to a variable = to do something when typed
-txt =  open(filename)
+txt = open(filename)
 # regular printing
 print(f"Here's your file {filename} :")
 # reading the text file
@@ -15,3 +16,6 @@ file_again = input(">")
 txt_again = open(file_again)
 # print sample text again
 print(txt_again.read())
+
+# a lot of programming terms come from the past
+# txt=open(filename) any file will be displayed as a .txt file in the terminal
