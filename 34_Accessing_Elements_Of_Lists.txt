@@ -1,11 +1,8 @@
-The animal at one =
-The third (3rd) animal =
-The first (1st) animal =
-The animal at 3 =
-The fifth (5th) animal =
-The animal at 2 =
-The sixth (6th) animal =
-The animal at 4 =
-
-
-#???? katia didnt even understand
+The animal at one = bear
+The third (3rd) animal = zebra
+The first (1st) animal = tiger
+The animal at 3 = penguin
+The fifth (5th) animal = bunny
+The animal at 2 = tiger
+The sixth (6th) animal = birds
+The animal at 4 = zebra

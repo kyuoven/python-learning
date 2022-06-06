@@ -1,17 +1,14 @@
-print("How old are you?", end=' ')
-age = input()
-print("How tall are you?", end=' ')
-height = input()
-print("How much do you weigh?", end=' ')
-weight = input()
+import sys
 
-print(f"So, you're {age} years old, {height} tall, and {weight} kg heavy.")
+script, filename = sys.argv
 
-from sys import argv
-
-print(argv)
-
-script, filename = argv
+print("How old are you?", end=" ")
+age = input(">")
+print("How tall are you?", end=" ")
+height = input(">")
+print("How much do you weigh?", end=" ")
+weight = input(">")
+print(f"So, you're {age} years old, {height} cm tall, and {weight} kg heavy.")
 
 txt = open(filename)
 
@@ -19,7 +16,7 @@ print(f"Here's your file {filename}:")
 print(txt.read())
 
 print("Type the filename again:")
-file_again = input("?")
+file_again = input(">")
 
 txt_again = open(file_again)
 
@@ -27,13 +24,13 @@ print(txt_again.read())
 
 
 print("Let's practice everything.")
-print("You\'d need to know \'bout escapes")
-print("\tthat do \nnewlines and \ttabs") 
+print("You'd need to know 'bout escapes")
+print("that do \nnewlines and \ttabs")
 
 poem = """
 \tThe lovely world
 with logic so firmly planted
-cannot discern \n the needs of love
+cannot discern \nthe needs of love
 nor comprehend passion from intuition
 and requires an explanation
 \n\t\twhere there is none.
@@ -46,6 +43,7 @@ print("--------------")
 
 five = 10 - 2 + 3 - 6
 print(f"This should be five: {five}")
+
 
 def secret_formula(started):
     jelly_beans = started * 500
@@ -76,7 +74,7 @@ dogs = 15
 
 
 if people < cats:
-    print ("Too many cats! The world is doomed!")
+    print("Too many cats! The world is doomed!")
 
 if people > cats:
     print("Not many cats! The world is saved!")

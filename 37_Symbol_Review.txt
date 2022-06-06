@@ -1,0 +1,60 @@
+- Keywords
+
+and         logical and
+as          part of the with-as statement
+assert      assert (ensure) that something is true
+break       stop this loop right now
+class       define a class
+continue    don't process more of the loop, do it again
+def         define a function
+del         delete from dictionary
+elif        else if condition
+else        else condition
+except      if an exception happens, do this 
+exec        run a string as python
+finally     exceptions or not, finally do this no matter what
+for         loop over a collection of things
+from        importing specific parts of a module
+global      declare that you want a global variable
+if          if condition
+import      import a module into this one to use
+in          part of for-loops. also a test of x in y
+is          like == to test equality
+lambda      create a short anonymous function
+not         logical not
+or          logical or
+pass        this block is empty
+print       print this string
+raise       raise an exception when things go wrong
+return      exit the function with a return value
+try         try this block, and if exception, go to except
+while       while loop
+with        with an expression as a variable do
+yield       pause here and return to caller
+
+- Data types
+
+False       False boolean value
+True        True boolean value
+None        represents nothing, no value
+bytes       stores bytes, maybe of text, PNG, file, etc.
+strings     stores textual information      
+numbers     stores integers
+floats      stores decimals
+lists       stores a list of things
+dicts       stores a key=value mapping of things
+
+- String escape sequences
+
+\\          backslash
+\'          single-quote
+\"          double-quote
+\a          bell #
+\b          backspace
+\f          formfeed #
+\n          newline
+\r          carriage #
+\t          tab
+\v          vertical tab
+
+- Operators: check file https://drive.google.com/drive/u/0/folders/1Vji5Y_WgB-3NXD_F87H2jnH-No2jd0QM
