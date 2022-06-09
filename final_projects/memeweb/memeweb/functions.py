@@ -17,6 +17,12 @@ def load_room(name):
     # This line returns the value of the key name if it is found in globals (dict)
 
 
+def name_room(room):
+    for key, value in globals().items():
+        if value == room:
+            return key
+
+
 def test():
     return globals()
 
@@ -32,7 +38,7 @@ start_room = Room(
 cookie_room = Room(
     "Cookie",
     """
-    ٩꒰｡•◡•｡꒱۶ congratz! go get yourself a cookie for your efforts 🍪 
+    ٩꒰｡•◡•｡꒱۶ congratz! go get yourself a cookie for your efforts 🍪
     """,
 )
 
@@ -59,7 +65,7 @@ question_mark_room_secret = Room(
     Enjoy your time in this humble abode!
     ...
     Whenever you are ready, just type "I am ready" to continue playing.
-    Stay safe, stay sane and hydrated. 
+    Stay safe, stay sane and hydrated.
     <3
 
     """,
@@ -104,7 +110,7 @@ escaped_from_among = Room(
 you_are_sus = Room(
     "U SUS",
     """
-    IMPOSTER FROM AMOGUS: NOOOO WAY!! u are toooo sus !!! 
+    IMPOSTER FROM AMOGUS: NOOOO WAY!! u are toooo sus !!!
     IMPOSTER FROM AMOGUS: did you take my fortnite card?????!!!!
     IMPOSTER FROM AMOGUS: YEET!!!
     Darn! You got thrown from the aircraft which you had no idea you were in !!
@@ -160,12 +166,14 @@ elon_death_room = Room(
 winner_room = Room(
     "The end",
     """
-    Oh you made it! I am proud of you :) 
+    Oh you made it! I am proud of you :)
     You saved humanity by the skin of your teeth, and you will now be remembered as a great hero.
     Good Job!
     """,
 )
 
+
+START = "main_room"
 
 death = Room("death", "You failed to reach the end!")
 
@@ -207,3 +215,4 @@ no_cookie_room.add_paths({"*": main_room})
 
 if __name__ == "__main__":
     start_room
+<
