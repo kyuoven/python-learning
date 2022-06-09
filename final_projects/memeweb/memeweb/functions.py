@@ -5,7 +5,8 @@ class Room(object):
         self.paths = {}
 
     def go(self, direction):
-        return self.paths.get(direction)
+        default = self.paths.get("*")
+        return self.paths.get(direction, default)
 
     def add_paths(self, paths):
         self.paths.update(paths)
@@ -28,7 +29,7 @@ def test():
 
 
 start_room = Room(
-    "Start",
+    "The start",
     """
     Do you have it?
     The password?
@@ -36,21 +37,21 @@ start_room = Room(
 )
 
 cookie_room = Room(
-    "Cookie",
+    "Wow, a cookie!",
     """
     ٩꒰｡•◡•｡꒱۶ congratz! go get yourself a cookie for your efforts 🍪
     """,
 )
 
 no_cookie_room = Room(
-    "No cookie",
+    "No cookie 4 u :(",
     """
     Whoops! that is not correct! Now onto the game :)
     """,
 )
 
 main_room = Room(
-    "Main",
+    "Your adventure begins...",
     """
     While taking a stupid little walk for your stupid little mental health you come across a triple fork in your path.
     There is a road to the left, middle and right.
@@ -72,7 +73,7 @@ question_mark_room_secret = Room(
 )
 
 djungelskog_room = Room(
-    "Djungelskog",
+    "You chose to go left",
     """
     You have encountered the soft and cuddly (yet quite stinky!) Djungelskog.
     He offers a hug and a soft place to lay your head for a bit.
@@ -81,7 +82,7 @@ djungelskog_room = Room(
 )
 
 cuddle_With_djungelskog = Room(
-    "Cuddle",
+    "You chose to cuddle the mighty Djungelskog. This will be a nice nap",
     """
     You started to feel drowsy just thinking about leaning into his fluffy fur.
     While dozing off, Djungelskog whispers something in your ear.
@@ -91,7 +92,7 @@ cuddle_With_djungelskog = Room(
 )
 
 imposter_room = Room(
-    "Imposter",
+    "You chose to head right",
     """
     IMPOSTER FROM AMOGUS: My, my.....
     IMPOSTER FROM AMOGUS: You look quite SUSSY today!
@@ -101,14 +102,14 @@ imposter_room = Room(
 )
 
 escaped_from_among = Room(
-    "Escaped from the imposter",
+    "You barely escaped from the among! ",
     """
     Whew! That was like, super close.
     """,
 )
 
 you_are_sus = Room(
-    "U SUS",
+    "U SUS!!!!!!",
     """
     IMPOSTER FROM AMOGUS: NOOOO WAY!! u are toooo sus !!!
     IMPOSTER FROM AMOGUS: did you take my fortnite card?????!!!!
@@ -118,7 +119,7 @@ you_are_sus = Room(
 )
 
 elongate_room = Room(
-    "Elongate",
+    "You chose the middle path",
     """
     It's pretty cold in here...
     Wait, what's that?
@@ -129,7 +130,7 @@ elongate_room = Room(
 )
 
 elongate_punch = Room(
-    "You punched Elon",
+    "You chose to punch Elon",
     """
     Wow! You punched him HARD! So cool!
     While Elon is unconscious, you notice a  little hole were you can barely fit through and make you way into the unknown room it led to.
@@ -156,7 +157,7 @@ elongate_hack = Room(
 )
 
 elon_death_room = Room(
-    "Twitter cringe",
+    "Watch out!",
     """
     Elon YOINKS you and makes you look at every tweet that he ever wrote (they are super cringe)
     You cannot take it anymore and you faint.
@@ -164,7 +165,7 @@ elon_death_room = Room(
 )
 
 winner_room = Room(
-    "The end",
+    "This is the end. Is it?",
     """
     Oh you made it! I am proud of you :)
     You saved humanity by the skin of your teeth, and you will now be remembered as a great hero.
@@ -172,10 +173,19 @@ winner_room = Room(
     """,
 )
 
+i_dont_understand_room = Room(
+    "I didn't understand that",
+    "Sorry! Could you try something else?",
+)
 
-START = "main_room"
 
-death = Room("death", "You failed to reach the end!")
+START = "start_room"
+
+death = Room("You died, how sad", "You failed to reach the end :( noob")
+
+cookie_room.add_paths({"*": main_room})
+
+i_dont_understand_room.add_paths({"*": main_room})
 
 main_room.add_paths({"left": djungelskog_room})
 
@@ -184,6 +194,14 @@ main_room.add_paths({"middle": elongate_room})
 main_room.add_paths({"right": imposter_room})
 
 main_room.add_paths({"up": question_mark_room_secret})
+
+main_room.add_paths({"*": i_dont_understand_room})
+
+elongate_room.add_paths({"punch him in the FACE": elongate_punch})
+
+elongate_room.add_paths({"hack him": elongate_hack})
+
+elongate_room.add_paths({"steal his stonks": elongate_stonks})
 
 djungelskog_room.add_paths({"yes": cuddle_With_djungelskog})
 
@@ -213,6 +231,7 @@ start_room.add_paths({"*": no_cookie_room})
 
 no_cookie_room.add_paths({"*": main_room})
 
+winner_room.add_paths({"*": main_room})
+
 if __name__ == "__main__":
     start_room
-<

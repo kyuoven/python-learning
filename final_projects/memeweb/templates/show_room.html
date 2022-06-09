@@ -33,12 +33,12 @@
 </style>
 
 <title>
-    ( ' ω ' )ノﾞ HI ★ ☆ ★ ☆ ★ ☆
+    kyuoven's game !
 </title>
 
 {% if room %}
 
-<h1>Choose your adventure!</h1>
+<h1>Welcome to my game ! </h1>
 <h2> {{room.name}} </h2>
 <p> {{room.description}} </p>
 
@@ -52,7 +52,7 @@
 {% else %}
 <p>
 <form action="/game" method="POST">
-    - <input type="text" name="action" autocomplete="off"> <input type="submit">
+    >>>> <input type="text" name="action" autocomplete="off"> <input type="submit">
 </form>
 
 </p>
