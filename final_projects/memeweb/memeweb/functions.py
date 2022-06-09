@@ -33,6 +33,9 @@ start_room = Room(
     """
     Do you have it?
     The password?
+
+    \n> type in password . . .
+
     """,
 )
 
@@ -56,6 +59,11 @@ main_room = Room(
     While taking a stupid little walk for your stupid little mental health you come across a triple fork in your path.
     There is a road to the left, middle and right.
     You wonder which way to go...
+
+    \n> left
+    \n> middle
+    \n> right
+    \n> ?
     """,
 )
 
@@ -78,6 +86,9 @@ djungelskog_room = Room(
     You have encountered the soft and cuddly (yet quite stinky!) Djungelskog.
     He offers a hug and a soft place to lay your head for a bit.
     Will you accept his proposal?
+
+    \n> yes
+    \n> no
     """,
 )
 
@@ -88,6 +99,8 @@ cuddle_With_djungelskog = Room(
     While dozing off, Djungelskog whispers something in your ear.
     DJUNGELSKOG: The password, my dear...
     DJUNGELSKOG: It's 'PomPomPurinLovr10'
+
+    \n> type anything to continue . . .
     """,
 )
 
@@ -97,7 +110,8 @@ imposter_room = Room(
     IMPOSTER FROM AMOGUS: My, my.....
     IMPOSTER FROM AMOGUS: You look quite SUSSY today!
     Oh no! The imposter thinks you are sus!
-    Type 'I swear I am not sus.' to save yourself!
+
+    \n > Type 'I swear I am not sus.' to save yourself
     """,
 )
 
@@ -105,6 +119,9 @@ escaped_from_among = Room(
     "You barely escaped from the among! ",
     """
     Whew! That was like, super close.
+    Let's continue.
+
+    \n> type anything to continue . . .
     """,
 )
 
@@ -115,6 +132,8 @@ you_are_sus = Room(
     IMPOSTER FROM AMOGUS: did you take my fortnite card?????!!!!
     IMPOSTER FROM AMOGUS: YEET!!!
     Darn! You got thrown from the aircraft which you had no idea you were in !!
+
+    \n> type anything to continue . . .
     """,
 )
 
@@ -126,6 +145,11 @@ elongate_room = Room(
     Elon Musk: *mumble mumble* elongate is so kewl *mumble mumble* buy tweetor *mumble mumble* stonks
     .....
     Uhm, What should we do?? HELP!!
+
+    \n> punch him in the FACE
+    \n> hack him
+    \n> steal his stonks
+    \n
     """,
 )
 
@@ -134,6 +158,8 @@ elongate_punch = Room(
     """
     Wow! You punched him HARD! So cool!
     While Elon is unconscious, you notice a  little hole were you can barely fit through and make you way into the unknown room it led to.
+
+    \n> type anything to continue . . .
 
     """,
 )
@@ -144,6 +170,8 @@ elongate_stonks = Room(
     YOINK!!!
     But, now what?
     You are stuck here forever :(
+
+    \n> You cannot continue.
     """,
 )
 
@@ -153,6 +181,8 @@ elongate_hack = Room(
     You grab his phone and HACK into his twitter account and DELETE IT.
     All of humanity reunites again, the ecosystem is getting better and you can feel the air getting fresher.
     No more elon. all the cringe has been eradicated in the world.
+
+    \n> type anything to continue . . .
     """,
 )
 
@@ -161,6 +191,8 @@ elon_death_room = Room(
     """
     Elon YOINKS you and makes you look at every tweet that he ever wrote (they are super cringe)
     You cannot take it anymore and you faint.
+
+    \n> type anything to continue . . .
     """,
 )
 
@@ -170,12 +202,18 @@ winner_room = Room(
     Oh you made it! I am proud of you :)
     You saved humanity by the skin of your teeth, and you will now be remembered as a great hero.
     Good Job!
+
+    \n> type anything to continue . . .
     """,
 )
 
 i_dont_understand_room = Room(
     "I didn't understand that",
-    "Sorry! Could you try something else?",
+    """
+    Sorry! Could you try something else?
+
+    \n> type anything to continue . . .
+    """,
 )
 
 
@@ -195,6 +233,8 @@ main_room.add_paths({"right": imposter_room})
 
 main_room.add_paths({"up": question_mark_room_secret})
 
+question_mark_room_secret.add_paths({"I am ready": start_room})
+
 main_room.add_paths({"*": i_dont_understand_room})
 
 elongate_room.add_paths({"punch him in the FACE": elongate_punch})
@@ -203,15 +243,19 @@ elongate_room.add_paths({"hack him": elongate_hack})
 
 elongate_room.add_paths({"steal his stonks": elongate_stonks})
 
+elongate_room.add_paths({"*": i_dont_understand_room})
+
 djungelskog_room.add_paths({"yes": cuddle_With_djungelskog})
 
 djungelskog_room.add_paths({"no": death})
 
+djungelskog_room.add_paths({"*": i_dont_understand_room})
+
 imposter_room.add_paths({"I swear I am not sus.": escaped_from_among})
 
-escaped_from_among.add_paths({"*": start_room})
-
 imposter_room.add_paths({"*": you_are_sus})
+
+escaped_from_among.add_paths({"*": start_room})
 
 you_are_sus.add_paths({"*": death})
 
@@ -232,6 +276,8 @@ start_room.add_paths({"*": no_cookie_room})
 no_cookie_room.add_paths({"*": main_room})
 
 winner_room.add_paths({"*": main_room})
+
+death.add_paths({"*": start_room})
 
 if __name__ == "__main__":
     start_room
