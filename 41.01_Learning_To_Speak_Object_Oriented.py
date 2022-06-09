@@ -6,15 +6,15 @@ WORD_URL = "http://learncodethehardway.org/words.txt"
 WORDS = []
 
 PHRASES = {
-    "class %%%(%%%) :": "Make a  class names %%% that is-a %%%.",
+    "class %%%(%%%) :": "Make a  class named %%% that is-a %%%.",
     "class %%%(object) : \n\tdef __init__(self, ***)": "class %%% has-a __init__ that takes self and *** paramteres",
     "class %%%(object): \n\tdef *** (self, @@@)": "class %%% has-a function *** that takes self and @@@ parameters.",
     "*** = %%%()": "Set *** to an instance of class %%%",
     "***.***(@@@)": "From *** get the *** function, call it with params self",
-    "***.***(@@@)": "From *** get the *** attriibute and set it to '***'.",
+    "***.***(@@@)": "From *** get the *** attribute and set it to '***'.",
 }
 
-# do they want to drill the phrases firsty
+# do they want to drill the phrases first
 if len(sys.argv) == 2 and sys.argv[1] == "english":
     PHRASE_FIRST = True
 else:
@@ -36,7 +36,7 @@ def convert(snippet, phrase):
         param_names.append(",".join(random.sample(WORDS, param_count)))
 
     for sentence in snippet, phrase:
-        result = sentence[:]
+        result = sentence[:]  # the python way of copying a list
 
         # fake class names
         for word in class_names:
@@ -73,3 +73,7 @@ try:
             print(f"ANSWER: {answer} \n\n")
 except EOFError:
     print("\nBye")
+
+# Remember that these phrases are using nonsense words. Part of learning to
+# read code well is to stop placing so much meaning on the names used for
+# variables and classes.

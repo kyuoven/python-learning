@@ -3,10 +3,10 @@ class Animal(object):
     pass
 
 
-## Dog is-a animal
+# Dog is-a animal and has-a __init__ function that takes self and name parameters
 class Dog(Animal):
     def __init__(self, name):
-        ## Dog has-a name
+        ## Dog has-a attribute named name
         self.name = name
 
 
