@@ -1,7 +1,8 @@
 class Room(object):
-    def __init__(self, name, description):
+    def __init__(self, name, description, options):
         self.name = name
         self.description = description
+        self.options = options
         self.paths = {}
 
     def go(self, direction):
@@ -33,9 +34,9 @@ start_room = Room(
     """
     Do you have it?
     The password?
-
+    """,
+    """
     \n> type in password . . .
-
     """,
 )
 
@@ -44,12 +45,18 @@ cookie_room = Room(
     """
     ٩꒰｡•◡•｡꒱۶ congratz! go get yourself a cookie for your efforts 🍪
     """,
+    """
+    This is the end for our journey!
+    """,
 )
 
 no_cookie_room = Room(
     "No cookie 4 u :(",
     """
     Whoops! that is not correct! Now onto the game :)
+    """,
+    """
+    > press anything to continue
     """,
 )
 
@@ -60,10 +67,12 @@ main_room = Room(
     There is a road to the left, middle and right.
     You wonder which way to go...
 
-    \n> left
-    \n> middle
-    \n> right
-    \n> ?
+    """,
+    """
+    > left
+    > middle
+    > right
+    > ?
     """,
 )
 
@@ -76,7 +85,9 @@ question_mark_room_secret = Room(
     Whenever you are ready, just type "I am ready" to continue playing.
     Stay safe, stay sane and hydrated.
     <3
-
+    """,
+    """
+    > type "I am ready" ...
     """,
 )
 
@@ -86,7 +97,8 @@ djungelskog_room = Room(
     You have encountered the soft and cuddly (yet quite stinky!) Djungelskog.
     He offers a hug and a soft place to lay your head for a bit.
     Will you accept his proposal?
-
+    """,
+    """
     \n> yes
     \n> no
     """,
@@ -99,7 +111,8 @@ cuddle_With_djungelskog = Room(
     While dozing off, Djungelskog whispers something in your ear.
     DJUNGELSKOG: The password, my dear...
     DJUNGELSKOG: It's 'PomPomPurinLovr10'
-
+    """,
+    """
     \n> type anything to continue . . .
     """,
 )
@@ -110,7 +123,8 @@ imposter_room = Room(
     IMPOSTER FROM AMOGUS: My, my.....
     IMPOSTER FROM AMOGUS: You look quite SUSSY today!
     Oh no! The imposter thinks you are sus!
-
+    """,
+    """
     \n > Type 'I swear I am not sus.' to save yourself
     """,
 )
@@ -120,7 +134,8 @@ escaped_from_among = Room(
     """
     Whew! That was like, super close.
     Let's continue.
-
+    """,
+    """
     \n> type anything to continue . . .
     """,
 )
@@ -132,7 +147,8 @@ you_are_sus = Room(
     IMPOSTER FROM AMOGUS: did you take my fortnite card?????!!!!
     IMPOSTER FROM AMOGUS: YEET!!!
     Darn! You got thrown from the aircraft which you had no idea you were in !!
-
+    """,
+    """
     \n> type anything to continue . . .
     """,
 )
@@ -145,7 +161,8 @@ elongate_room = Room(
     Elon Musk: *mumble mumble* elongate is so kewl *mumble mumble* buy tweetor *mumble mumble* stonks
     .....
     Uhm, What should we do?? HELP!!
-
+    """,
+    """
     \n> punch him in the FACE
     \n> hack him
     \n> steal his stonks
@@ -158,7 +175,8 @@ elongate_punch = Room(
     """
     Wow! You punched him HARD! So cool!
     While Elon is unconscious, you notice a  little hole were you can barely fit through and make you way into the unknown room it led to.
-
+    """,
+    """
     \n> type anything to continue . . .
 
     """,
@@ -170,7 +188,8 @@ elongate_stonks = Room(
     YOINK!!!
     But, now what?
     You are stuck here forever :(
-
+    """,
+    """
     \n> You cannot continue.
     """,
 )
@@ -181,7 +200,8 @@ elongate_hack = Room(
     You grab his phone and HACK into his twitter account and DELETE IT.
     All of humanity reunites again, the ecosystem is getting better and you can feel the air getting fresher.
     No more elon. all the cringe has been eradicated in the world.
-
+    """,
+    """
     \n> type anything to continue . . .
     """,
 )
@@ -191,7 +211,8 @@ elon_death_room = Room(
     """
     Elon YOINKS you and makes you look at every tweet that he ever wrote (they are super cringe)
     You cannot take it anymore and you faint.
-
+    """,
+    """
     \n> type anything to continue . . .
     """,
 )
@@ -202,7 +223,8 @@ winner_room = Room(
     Oh you made it! I am proud of you :)
     You saved humanity by the skin of your teeth, and you will now be remembered as a great hero.
     Good Job!
-
+    """,
+    """
     \n> type anything to continue . . .
     """,
 )
@@ -211,7 +233,8 @@ i_dont_understand_room = Room(
     "I didn't understand that",
     """
     Sorry! Could you try something else?
-
+    """,
+    """
     \n> type anything to continue . . .
     """,
 )
@@ -219,7 +242,15 @@ i_dont_understand_room = Room(
 
 START = "start_room"
 
-death = Room("You died, how sad", "You failed to reach the end :( noob")
+death = Room(
+    "You died, how sad",
+    """
+    You failed to reach the end :( noob
+    """,
+    """
+    > type anything to continue ...
+    """,
+)
 
 cookie_room.add_paths({"*": main_room})
 
