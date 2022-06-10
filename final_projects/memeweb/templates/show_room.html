@@ -43,8 +43,9 @@
 </title>
 
 {% if room %}
-
-<h1>Welcome to my game ! </h1>
+{% if room.title == True%}
+<h1>Welcome to my game! </h1>
+{% endif %}
 <h2> {{room.name}} </h2>
 <p> {{room.description}} </p>
 <h3> {{room.options}} </h3>

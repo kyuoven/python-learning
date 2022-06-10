@@ -1,8 +1,12 @@
+from curses import start_color
+
+
 class Room(object):
-    def __init__(self, name, description, options):
+    def __init__(self, name, description, options, title=True):
         self.name = name
         self.description = description
         self.options = options
+        self.title = title
         self.paths = {}
 
     def go(self, direction):
@@ -48,6 +52,7 @@ cookie_room = Room(
     """
     This is the end for our journey!
     """,
+    title=None,
 )
 
 no_cookie_room = Room(
@@ -58,6 +63,7 @@ no_cookie_room = Room(
     """
     ☆ press anything to continue
     """,
+    title=None,
 )
 
 main_room = Room(
@@ -89,6 +95,7 @@ question_mark_room_secret = Room(
     """
     ☆ type "I am ready" ...
     """,
+    title=None,
 )
 
 djungelskog_room = Room(
@@ -102,6 +109,7 @@ djungelskog_room = Room(
     ☆ yes
     ☆ no
     """,
+    title=None,
 )
 
 cuddle_With_djungelskog = Room(
@@ -115,6 +123,7 @@ cuddle_With_djungelskog = Room(
     """
     ☆ type anything to continue . . .
     """,
+    title=None,
 )
 
 imposter_room = Room(
@@ -127,6 +136,7 @@ imposter_room = Room(
     """
     ☆ Type 'I swear I am not sus.' to save yourself
     """,
+    title=None,
 )
 
 escaped_from_among = Room(
@@ -138,6 +148,7 @@ escaped_from_among = Room(
     """
     ☆ type anything to continue . . .
     """,
+    title=None,
 )
 
 you_are_sus = Room(
@@ -151,6 +162,7 @@ you_are_sus = Room(
     """
     ☆ type anything to continue . . .
     """,
+    title=None,
 )
 
 elongate_room = Room(
@@ -167,6 +179,7 @@ elongate_room = Room(
     ☆ hack him
     ☆ steal his stonks
     """,
+    title=None,
 )
 
 elongate_punch = Room(
@@ -177,8 +190,8 @@ elongate_punch = Room(
     """,
     """
     ☆ type anything to continue . . .
-
     """,
+    title=None,
 )
 
 elongate_stonks = Room(
@@ -191,6 +204,7 @@ elongate_stonks = Room(
     """
     ☆ You cannot continue.
     """,
+    title=None,
 )
 
 elongate_hack = Room(
@@ -203,6 +217,7 @@ elongate_hack = Room(
     """
     ☆ type anything to continue . . .
     """,
+    title=None,
 )
 
 elon_death_room = Room(
@@ -214,6 +229,7 @@ elon_death_room = Room(
     """
     ☆ type anything to continue . . .
     """,
+    title=None,
 )
 
 winner_room = Room(
@@ -226,6 +242,7 @@ winner_room = Room(
     """
     ☆ type anything to continue . . .
     """,
+    title=None,
 )
 
 i_dont_understand_room = Room(
@@ -236,10 +253,8 @@ i_dont_understand_room = Room(
     """
     ☆ type anything to continue . . .
     """,
+    title=None,
 )
-
-
-START = "start_room"
 
 death = Room(
     "You died, how sad",
@@ -249,7 +264,10 @@ death = Room(
     """
     ☆ type anything to continue ...
     """,
+    title=None,
 )
+
+START = "start_room"
 
 cookie_room.add_paths({"*": main_room})
 
@@ -276,6 +294,8 @@ elongate_room.add_paths({"steal his stonks": elongate_stonks})
 elongate_room.add_paths({"*": i_dont_understand_room})
 
 djungelskog_room.add_paths({"yes": cuddle_With_djungelskog})
+
+cuddle_With_djungelskog.add_paths({"*": start_room})
 
 djungelskog_room.add_paths({"no": death})
 
