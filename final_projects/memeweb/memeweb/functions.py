@@ -1,6 +1,3 @@
-from curses import start_color
-
-
 class Room(object):
     def __init__(self, name, description, options, title=True):
         self.name = name
