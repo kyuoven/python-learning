@@ -36,7 +36,7 @@ start_room = Room(
     The password?
     """,
     """
-    \n> type in password . . .
+    > type in password . . .
     """,
 )
 
@@ -99,8 +99,8 @@ djungelskog_room = Room(
     Will you accept his proposal?
     """,
     """
-    \n> yes
-    \n> no
+    > yes
+    > no
     """,
 )
 
@@ -113,7 +113,7 @@ cuddle_With_djungelskog = Room(
     DJUNGELSKOG: It's 'PomPomPurinLovr10'
     """,
     """
-    \n> type anything to continue . . .
+    > type anything to continue . . .
     """,
 )
 
@@ -125,7 +125,7 @@ imposter_room = Room(
     Oh no! The imposter thinks you are sus!
     """,
     """
-    \n > Type 'I swear I am not sus.' to save yourself
+    > Type 'I swear I am not sus.' to save yourself
     """,
 )
 
@@ -136,7 +136,7 @@ escaped_from_among = Room(
     Let's continue.
     """,
     """
-    \n> type anything to continue . . .
+    > type anything to continue . . .
     """,
 )
 
@@ -149,7 +149,7 @@ you_are_sus = Room(
     Darn! You got thrown from the aircraft which you had no idea you were in !!
     """,
     """
-    \n> type anything to continue . . .
+    > type anything to continue . . .
     """,
 )
 
@@ -163,10 +163,9 @@ elongate_room = Room(
     Uhm, What should we do?? HELP!!
     """,
     """
-    \n> punch him in the FACE
-    \n> hack him
-    \n> steal his stonks
-    \n
+    > punch him in the FACE
+    > hack him
+    > steal his stonks
     """,
 )
 
@@ -177,7 +176,7 @@ elongate_punch = Room(
     While Elon is unconscious, you notice a  little hole were you can barely fit through and make you way into the unknown room it led to.
     """,
     """
-    \n> type anything to continue . . .
+    > type anything to continue . . .
 
     """,
 )
@@ -190,7 +189,7 @@ elongate_stonks = Room(
     You are stuck here forever :(
     """,
     """
-    \n> You cannot continue.
+    > You cannot continue.
     """,
 )
 
@@ -202,7 +201,7 @@ elongate_hack = Room(
     No more elon. all the cringe has been eradicated in the world.
     """,
     """
-    \n> type anything to continue . . .
+    > type anything to continue . . .
     """,
 )
 
@@ -213,7 +212,7 @@ elon_death_room = Room(
     You cannot take it anymore and you faint.
     """,
     """
-    \n> type anything to continue . . .
+    > type anything to continue . . .
     """,
 )
 
@@ -225,7 +224,7 @@ winner_room = Room(
     Good Job!
     """,
     """
-    \n> type anything to continue . . .
+    > type anything to continue . . .
     """,
 )
 
@@ -235,7 +234,7 @@ i_dont_understand_room = Room(
     Sorry! Could you try something else?
     """,
     """
-    \n> type anything to continue . . .
+    > type anything to continue . . .
     """,
 )
 
