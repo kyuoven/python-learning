@@ -1,33 +1,24 @@
 <html>
 <header>
     <link href="functions.py" rel="import" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@1,600&display=swap" rel="stylesheet">
 </header>
 <style>
-    body {
-        background-color: beige;
-    }
-
-    h2 {
-        font-size: 35px;
-        color: #bd8251;
-        display: flex;
-        align-items: flex-start;
-        font-family: 'Rubik', sans-serif;
-    }
-
-    p {
-        font-size: 15px;
-        color: #dea373;
-        display: flex;
-        align-items: center;
-        font-family: 'Rubik', sans-serif;
-    }
-
     h1 {
-        font-size: 45px;
+        font-size: 50px;
         color: #573214;
         display: flex;
         align-items: flex-end;
+        font-family: 'Work Sans', sans-serif;
+    }
+
+    h2 {
+        font-size: 40px;
+        color: #bd8251;
+        display: flex;
+        align-items: flex-start;
         font-family: 'Rubik', sans-serif;
     }
 
@@ -36,6 +27,28 @@
         color: #bd8251;
         font-family: 'Rubik', sans-serif;
     }
+
+    h4 {
+        font-size: 15px;
+        color: #573214;
+        font-family: 'Work Sans', sans-serif;
+    }
+
+    p {
+        font-size: 20px;
+        color: #dea373;
+        display: flex;
+        align-items: center;
+        font-family: 'Rubik', sans-serif;
+    }
+
+    body {
+        background-color: beige;
+    }
+
+    small {
+        font-size: 5;
+    }
 </style>
 
 <title>
@@ -43,7 +56,7 @@
 </title>
 
 {% if room %}
-{% if room.title == True%}
+{% if room.title %}
 <h1>Welcome to my game! </h1>
 {% endif %}
 <h2> {{room.name}} </h2>
@@ -60,7 +73,7 @@
 {% else %}
 <p>
 <form action="/game" method="POST">
-    > <input type="text" name="action" autocomplete="off"> <input type="submit">
+    ↳ <input type="text" name="action" autocomplete="off"> <input type="submit">
 </form>
 
 </p>

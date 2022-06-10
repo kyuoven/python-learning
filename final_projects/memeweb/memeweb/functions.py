@@ -1,5 +1,5 @@
 class Room(object):
-    def __init__(self, name, description, options, title=True):
+    def __init__(self, name, description, options, title=None):
         self.name = name
         self.description = description
         self.options = options
@@ -39,6 +39,7 @@ start_room = Room(
     """
     ☆ type in password . . .
     """,
+    title=True,
 )
 
 cookie_room = Room(
@@ -49,7 +50,6 @@ cookie_room = Room(
     """
     This is the end for our journey!
     """,
-    title=None,
 )
 
 no_cookie_room = Room(
@@ -60,7 +60,6 @@ no_cookie_room = Room(
     """
     ☆ press anything to continue
     """,
-    title=None,
 )
 
 main_room = Room(
@@ -92,7 +91,6 @@ question_mark_room_secret = Room(
     """
     ☆ type "I am ready" ...
     """,
-    title=None,
 )
 
 djungelskog_room = Room(
@@ -106,7 +104,6 @@ djungelskog_room = Room(
     ☆ yes
     ☆ no
     """,
-    title=None,
 )
 
 cuddle_With_djungelskog = Room(
@@ -120,11 +117,10 @@ cuddle_With_djungelskog = Room(
     """
     ☆ type anything to continue . . .
     """,
-    title=None,
 )
 
 imposter_room = Room(
-    "You chose to head right",
+    "You entered the right room",
     """
     IMPOSTER FROM AMOGUS: My, my.....
     IMPOSTER FROM AMOGUS: You look quite SUSSY today!
@@ -133,7 +129,6 @@ imposter_room = Room(
     """
     ☆ Type 'I swear I am not sus.' to save yourself
     """,
-    title=None,
 )
 
 escaped_from_among = Room(
@@ -145,7 +140,6 @@ escaped_from_among = Room(
     """
     ☆ type anything to continue . . .
     """,
-    title=None,
 )
 
 you_are_sus = Room(
@@ -159,7 +153,6 @@ you_are_sus = Room(
     """
     ☆ type anything to continue . . .
     """,
-    title=None,
 )
 
 elongate_room = Room(
@@ -176,7 +169,6 @@ elongate_room = Room(
     ☆ hack him
     ☆ steal his stonks
     """,
-    title=None,
 )
 
 elongate_punch = Room(
@@ -188,7 +180,6 @@ elongate_punch = Room(
     """
     ☆ type anything to continue . . .
     """,
-    title=None,
 )
 
 elongate_stonks = Room(
@@ -201,7 +192,6 @@ elongate_stonks = Room(
     """
     ☆ You cannot continue.
     """,
-    title=None,
 )
 
 elongate_hack = Room(
@@ -214,7 +204,6 @@ elongate_hack = Room(
     """
     ☆ type anything to continue . . .
     """,
-    title=None,
 )
 
 elon_death_room = Room(
@@ -226,7 +215,6 @@ elon_death_room = Room(
     """
     ☆ type anything to continue . . .
     """,
-    title=None,
 )
 
 winner_room = Room(
@@ -239,7 +227,6 @@ winner_room = Room(
     """
     ☆ type anything to continue . . .
     """,
-    title=None,
 )
 
 i_dont_understand_room = Room(
@@ -250,7 +237,6 @@ i_dont_understand_room = Room(
     """
     ☆ type anything to continue . . .
     """,
-    title=None,
 )
 
 death = Room(
@@ -261,7 +247,6 @@ death = Room(
     """
     ☆ type anything to continue ...
     """,
-    title=None,
 )
 
 START = "start_room"
