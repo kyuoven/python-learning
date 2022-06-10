@@ -30,10 +30,16 @@
         align-items: flex-end;
         font-family: 'Rubik', sans-serif;
     }
+
+    h3 {
+        font-style: 30px;
+        color: #bd8251;
+        font-family: 'Rubik', sans-serif;
+    }
 </style>
 
 <title>
-    kyuoven's game !
+    kyuoven's game ! 🍋
 </title>
 
 {% if room %}
@@ -41,7 +47,7 @@
 <h1>Welcome to my game ! </h1>
 <h2> {{room.name}} </h2>
 <p> {{room.description}} </p>
-<p> {{room.options}} </p>
+<h3> {{room.options}} </h3>
 
 <form action="/game" method="GET">
 </form>
