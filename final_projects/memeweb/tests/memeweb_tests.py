@@ -35,6 +35,6 @@ def test_map():
     middle.add_paths({"back": start})
     right.add_paths({"back": start})
 
-    assert (start.go("left"), left)
+    assert (start.go("left"), start)
     assert (start.go("middle").go("back"), start)
     assert (start.go("right").go("back"), start)
